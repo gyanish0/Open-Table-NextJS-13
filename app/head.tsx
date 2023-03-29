@@ -8,13 +8,3 @@ export default function Head() {
     </>
   )
 }
-
-// zNlQIXvke5UECeGH
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtxeHBsZGxpaGtrZ2dnc3Nkdm9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODAwMDM0NDQsImV4cCI6MTk5NTU3OTQ0NH0.m-GDRO6FiAWjv6AvJ5-ga06DLqnQVbhn_aH6YVaQu0c
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtxeHBsZGxpaGtrZ2dnc3Nkdm9zIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MDAwMzQ0NCwiZXhwIjoxOTk1NTc5NDQ0fQ.y0wpYdntd2RL1AN5lBhfcZqIo2wU-vO_KYU15CmvkU8
-// https://kqxpldlihkkgggssdvos.supabase.co
-// 2EGWnbr4ySLH1SkMk5LiCdEbJUMso9KOYLWKrKh8X2Ol0jK9WKcNMoGB5FUck7TLf44CK87gtOmwVHxHm/zkrg==
-// jwt
-
-// LwPymiaWFLEttF9v
