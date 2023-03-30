@@ -75,7 +75,7 @@ export default async function handler(
             email: user.email,
             phone: user.phone,
             city: user.city,
-            token: token
+            token
         });
     }
 
