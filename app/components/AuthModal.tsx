@@ -25,7 +25,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     const handleClose = () => setOpen(false);
 
     const { signin, signup } = useAuth()
-    const { loading, error } = useContext(AuthenticationContext)
+    const { loading, error, data } = useContext(AuthenticationContext)
 
     const renderContent = (signinContent: string, signupContent: string) => {
         return isSignin ? signinContent : signupContent
@@ -110,7 +110,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                         <div className="m-auto">
                             <h2 className="text-2xl font-light text-center">
                                 {renderContent(
-                                    "Log Into Your Account",
+                                    "Log into Your Account",
                                     "Create Your OpenTable Account"
                                 )}
                             </h2>
