@@ -1,9 +1,11 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Alert, CircularProgress } from '@mui/material';
 import AuthModalInputs from './AuthModalInputs';
+import useAuth from '../../hooks/useAuth';
+import { AuthenticationContext } from '../../context/AuthContext';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -21,6 +23,10 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const { signin } = useAuth()
+    const { loading, data, error } = useContext(AuthenticationContext)
+
     const renderContent = (signinContent: string, signupContent: string) => {
         return isSignin ? signinContent : signupContent
     }
@@ -65,7 +71,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
 
     const handleClick = () => {
         if (isSignin) {
-            // signin({ email: inputs.email, password: inputs.password }, handleClose);
+            signin({ email: inputs.email, password: inputs.password });
         } else {
             // signup(inputs, handleClose);
         }
@@ -85,10 +91,16 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+
                     <div className="p-2 h-[600px]">
-                        <Alert severity="error" className="mb-4">
-                            {/* {error} */}dd
-                        </Alert>
+                        {
+                            error ?
+                                <Alert severity="error" className="mb-4">
+                                    {error}
+                                </Alert>
+                                :
+                                null
+                        }
 
                         <div className="uppercase font-bold text-center pb-2 border-b mb-2">
                             <p className="text-sm">
@@ -107,17 +119,25 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                                 handleChangeInput={handleChangeInput}
                                 isSignin={isSignin}
                             />
-                            <button
-                                className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
-                                disabled={disabled}
-                                onClick={handleClick}
-                            >
-                                {renderContent("Sign In", "Create Account")}
-                            </button>
+                            {
+                                loading ?
+                                    <button
+                                        className="uppercase bg-red-600 w-full text-white rounded text-sm disabled:bg-gray-400">
+                                        <CircularProgress />
+                                    </button>
+                                    :
+                                    <button
+                                        className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
+                                        disabled={disabled}
+                                        onClick={handleClick}
+                                    >
+                                        {renderContent("Sign In", "Create Account")}
+                                    </button>
+                            }
                         </div>
                     </div>
                 </Box>
             </Modal>
-        </div>
+        </div >
     );
 }
