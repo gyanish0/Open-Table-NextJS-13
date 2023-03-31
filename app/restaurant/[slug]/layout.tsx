@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import "react-datepicker/dist/react-datepicker.css";
 
 function RestaurantLayout(
     {
