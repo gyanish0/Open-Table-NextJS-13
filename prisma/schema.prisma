@@ -26,10 +26,10 @@ model Restaurant {
   cuisine_id  Int
   cuisine     Cuisine   @relation(fields: [cuisine_id], references: [id])
   reviews     Review[]
+  bookings    Booking[]
+  tables      Table[]
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
-  Booking     Booking[]
-  Table       Table[]
 }
 
 model Item {
